@@ -1,0 +1,101 @@
+/* 전체 컨테이너 */
+.detailContainer {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+/* 날씨 섹션 */
+.weatherSection {
+  width: 90%;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.weatherInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.weatherInfo img {
+  width: 50px;
+}
+
+.weatherButton {
+  background-color: #81e979;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.weatherButton:hover {
+  background-color: #6cd16e;
+}
+
+/* 의상 추천 결과 섹션 */
+.resultSection {
+  width: 90%;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.clothingRecommendation {
+  margin-top: 20px;
+}
+
+.clothingResult img {
+  width: 50%;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.fileUpload {
+  margin: 15px 0;
+}
+
+.fileLabel {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.previewImage {
+  margin-top: 15px;
+  max-width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 버튼 스타일 */
+button {
+  margin-top: 15px;
+  background-color: #5cfa4b;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #4bd43b;
+}

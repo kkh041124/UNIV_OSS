@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap");
+
+/* 전체 컨테이너 */
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  margin-bottom: 50px;
+}
+
+.navButton {
+  margin-left: 20px;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.navButton:hover {
+  color: #28a745;
+}
+
+/* 메인 콘텐츠 */
+.contentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  flex-wrap: wrap;
+  padding: 0 5%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.textContainer {
+  flex: 1 1 40%;
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 600; /* SemiBold */
+  color: #4cbb17;
+  margin-bottom: 30px;
+}
+
+.subtitle {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.description {
+  font-size: 20px;
+  font-weight: 300; /* Light */
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* 버튼 스타일 */
+.startButton {
+  background-color: #81e979;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+.startButton:hover {
+  background-color: #6cd16e;
+}
+
+/* 로고 컨테이너 */
+.logoContainer {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 25px;
+  justify-content: flex-start;
+}
+
+.logo {
+  height: 40px;
+}
+
+.icon1 {
+  width: 45px;
+}
+
+.icon2,
+.icon4,
+.icon5 {
+  width: 40px;
+}
+
+.icon3 {
+  width: 30px;
+}
+
+/* 이미지 컨테이너 */
+.imageContainer {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.pandaImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* 비디오 섹션 */
+.videoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 60%;
+}
+
+.video {
+  width: 100%;
+  border: 2px solid #28a745;
+  border-radius: 10px;
+}
+
+.playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.playButton img {
+  width: 80px;
+  height: 80px;
+}
+
+.videoContainer h2 {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.videoContainer p {
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-top: 20px;
+  color: #333;
+}
+
+.videoContainer a {
+  color: #28a745;
+  text-decoration: none;
+}
+
+.videoContainer a:hover {
+  text-decoration: underline;
+}
+/* 전체 컨테이너 */
+.howToUseContainer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.howToUseTitle {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.stepsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+}
+
+.stepIcon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.stepDescription {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.resultButton {
+  background-color: #c8f7c5;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.resultButton:hover {
+  background-color: #a2e5a0;
+}
+.selectorContainer {
+  margin: 40px auto;
+  text-align: center;
+}
+/* FAQ 섹션 */
+.faqContainer {
+  margin: 50px auto;
+  padding: 20px;
+  width: 80%;
+  text-align: left;
+}
+
+.faqTitle {
+  font-size: 48px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.faqItem {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.faqItem h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.faqItem p {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #555;
+}
+/* Footer 스타일 */
+.footer {
+  background-color: #f1f1f1; /* 회색 배경 */
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.footerContent a {
+  color: #4cbb17;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footerContent a:hover {
+  text-decoration: underline;
+  color: #28a745;
+}
