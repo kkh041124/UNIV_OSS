@@ -1,19 +1,42 @@
-/* Header 수정 - 화면 벗어남 방지 */
+/* body 기본 여백 제거 */
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header 수정 */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  max-width: 100%; /* 화면을 벗어나지 않도록 설정 */
+  max-width: 100%;
   height: 70px;
   background-color: rgba(255, 255, 255, 0.95);
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: space-between; /* 왼쪽: 로고, 오른쪽: 메뉴 */
   align-items: center;
   padding: 0 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box; /* padding 포함 */
+  box-sizing: border-box;
   z-index: 1000;
+}
+
+/* 로고영역 - Outfit Mate */
+.headerLogo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4cbb17;
+  cursor: pointer;
+}
+
+/* Header 버튼 컨테이너: 오른쪽 정렬 */
+.headerButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 /* Header 버튼 정렬 */
@@ -48,16 +71,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* 상단 정렬 */
+  justify-content: flex-start;
   padding: 30px;
-  box-sizing: border-box; /* 패딩 포함 */
+  box-sizing: border-box;
 }
 
 .dateTimeBox {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 15px;
-  text-align: center; /* 텍스트 중앙 정렬 */
+  text-align: center;
 }
 
 .weatherBox {
@@ -87,7 +110,7 @@
 }
 
 .getWeatherButton {
-  background-color: #81e979;
+  background-color: #4cbb17;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -111,57 +134,98 @@
 
 /* 오른쪽 패널 */
 .rightContainer {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  align-items: center; /* 가운데 정렬 */
+  justify-content: flex-start; /* 위에서부터 배치 */
+  height: calc(100vh - 70px); /* 헤더를 제외한 화면 높이 */
+  width: 100%;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  overflow: hidden; /* 스크롤 방지 */
+  padding: 20px 0; /* 위, 아래 여백 추가 */
+}
+
+/* 결과 이미지 영역 */
+.resultImageContainer {
+  width: 780px; /* 고정된 너비 */
+  height: 550px; /* 고정된 높이 */
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.resultTitle {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.resultButtons {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.showResultButton {
-  background-color: #c4f1be;
-  color: #333;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-
-.showResultButton:hover {
-  background-color: #a3d9a0;
-}
-
-.iconButton {
-  background-color: #e8f3e8;
-  border: none;
-  padding: 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1.3rem;
-}
-
-.iconButton:hover {
-  background-color: #d0e6d0;
+  margin-bottom: 20px; /* 하단 간격 추가 */
+  padding: 15px; /* 내부 여백 추가 */
 }
 
 .resultImage {
-  margin-top: 20px;
-  max-width: 60%;
+  max-width: 90%; /* 결과 이미지가 컨테이너를 넘지 않도록 설정 */
+  max-height: 90%; /* 결과 이미지가 컨테이너보다 작게 표시 */
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* 파일 업로드 영역 */
+.uploadContainer {
+  width: 780px; /* 결과 이미지와 동일한 너비 */
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* 요소 간 간격 */
+}
+
+.uploadRow {
+  display: flex;
+  justify-content: space-between; /* 입력창을 가로로 배치 */
+  gap: 20px; /* 입력창 간 간격 */
+}
+
+.uploadItem {
+  flex: 1; /* 각 입력창 동일한 크기 */
+  display: flex;
+  flex-direction: column;
+}
+
+.uploadContainer label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.uploadContainer input[type="file"] {
+  width: 100%; /* 입력창 너비 확장 */
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+/* 버튼 영역 */
+.showResultButton {
+  width: 780px; /* 다른 요소들과 정렬 */
+  padding: 15px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+  margin-top: 20px; /* 상단 간격 추가 */
+}
+
+.showResultButton:hover {
+  background-color: #45a049;
 }

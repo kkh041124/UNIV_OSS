@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
@@ -14,21 +14,26 @@ import playButton from "./Static/play-button.png"; // 플레이 버튼 이미지
 import location_icon from "./Static/location-icon.png";
 import folder_icon from "./Static/folder.png";
 import ImageSelector from "../Component/ImageSelector";
+import { useAuth } from "../AuthContext";
 
 function Home() {
   const navigate = useNavigate();
   const videoRef = useRef(null);
 
-  const goToSignUp = () => navigate("/signup");
-  const goToLogin = () => navigate("/login");
-  const goToDetailPage = () => navigate("/detail");
+  const { isLoggedIn, logout } = useAuth();
 
   const handlePlayVideo = () => {
     if (videoRef.current) {
       videoRef.current.play();
     }
   };
-
+  const handleStartButton = () => {
+    if (isLoggedIn) {
+      navigate("/detail");
+    } else {
+      navigate("/login");
+    }
+  };
   // "정보" 버튼 클릭 시 videoSection으로 스크롤
   const goToInfoSection = () => {
     const videoSection = document.getElementById("videoSection");
@@ -58,16 +63,34 @@ function Home() {
   return (
     <div className={styles.homeContainer}>
       <header className={styles.header}>
-        <nav>
+        {/* 좌측 로고 - 새로고침 기능 */}
+        <div
+          className={styles.headerLogo}
+          onClick={() => window.location.reload()}
+        >
+          Outfit Mate
+        </div>
+
+        {/* 우측 네비게이션 버튼 */}
+        <nav className={styles.navButtons}>
           <button className={styles.navButton} onClick={goToInfoSection}>
             정보
           </button>
           <button className={styles.navButton} onClick={goToFAQSection}>
             FAQ
           </button>
-          <button className={styles.navButton} onClick={goToSignUp}>
-            로그인
-          </button>
+          {!isLoggedIn ? (
+            <button
+              className={styles.navButton}
+              onClick={() => navigate("/signup")}
+            >
+              로그인
+            </button>
+          ) : (
+            <button className={styles.navButton} onClick={logout}>
+              로그아웃
+            </button>
+          )}
         </nav>
       </header>
 
@@ -80,7 +103,7 @@ function Home() {
           <p className={styles.description}>
             내 위치와 이미지만으로, 원하는 스타일을 손쉽게 만들어 보세요!
           </p>
-          <button className={styles.startButton} onClick={goToDetailPage}>
+          <button className={styles.startButton} onClick={handleStartButton}>
             시작하기
           </button>
           <div className={styles.logoContainer}>

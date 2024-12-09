@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../AuthContext";
 import styles from "./SignUp.module.css";
 
 function SignUp() {
@@ -7,6 +8,7 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const { signup } = useAuth(); // AuthContext 사용
   const navigate = useNavigate();
 
   const handleSignUp = (e) => {
@@ -15,7 +17,10 @@ function SignUp() {
       setError("비밀번호가 일치하지 않습니다.");
       return;
     }
-    navigate("/login");
+
+    // 회원가입 성공 시 로그인 상태로 설정
+    signup();
+    navigate("/"); // Home 페이지로 이동
   };
 
   return (

@@ -15,31 +15,43 @@
 }
 
 /* Header */
-/* Header */
 .header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
-
   display: flex;
-  justify-content: flex-end; /* 항목을 오른쪽으로 정렬 */
-  align-items: center; /* 수직 가운데 정렬 */
+  justify-content: space-between; /* 좌우 정렬 */
+  align-items: center;
   padding: 10px 20px;
-
-  background-color: rgba(255, 255, 255, 0.95); /* 불투명한 배경 */
+  background-color: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid #ddd;
-  box-sizing: border-box; /* 패딩이 너비를 침범하지 않도록 */
+  box-sizing: border-box;
+}
+
+.headerLogo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #4cbb17;
+  cursor: pointer;
+}
+
+.headerLogo:hover {
+  color: #28a745;
+}
+
+.navButtons {
+  display: flex;
+  gap: 20px;
 }
 
 .navButton {
-  margin-left: 20px;
   background: none;
   border: none;
   font-size: 1rem;
   font-weight: 400;
   cursor: pointer;
-  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+  color: #333;
 }
 
 .navButton:hover {
@@ -85,7 +97,7 @@
 
 /* 버튼 스타일 */
 .startButton {
-  background-color: #81e979;
+  background-color: #4cbb17;
   color: white;
   font-size: 1rem;
   padding: 10px 20px;
@@ -96,7 +108,7 @@
 }
 
 .startButton:hover {
-  background-color: #6cd16e;
+  background-color: #43a615;
 }
 
 /* 로고 컨테이너 */
@@ -310,4 +322,16 @@
 .footerContent a:hover {
   text-decoration: underline;
   color: #28a745;
+}
+/* 반응형 헤더 */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navButtons {
+    justify-content: center;
+    width: 100%;
+  }
 }

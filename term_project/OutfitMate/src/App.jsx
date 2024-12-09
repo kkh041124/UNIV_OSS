@@ -1,22 +1,23 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./Page/Home"; // 수정된 경로
+import { AuthProvider } from "./AuthContext";
+import Home from "./Page/Home";
 import Login from "./Component/Login";
+import Detail from "./Page/Detail";
 import SignUp from "./Component/Singup";
-import Detail from "./Page/Detail"; // 수정된 경로
 
 function App() {
   return (
-    <Router>
-      <div className="App">
+    <AuthProvider>
+      <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/detail" element={<Detail />} />
         </Routes>
-      </div>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }
 
