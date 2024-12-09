@@ -4,19 +4,32 @@
 .homeContainer {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  /* height: 100vh; 제거 */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
+
+  /* 고정 헤더 아래로 콘텐츠가 들어가게 패딩 추가 (헤더 높이만큼) */
+  padding-top: 80px; /* 헤더 높이에 따라 조정 (예: 80px) */
 }
 
 /* Header */
+/* Header */
 .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* 항목을 오른쪽으로 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
   padding: 10px 20px;
-  margin-bottom: 50px;
+
+  background-color: rgba(255, 255, 255, 0.95); /* 불투명한 배경 */
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box; /* 패딩이 너비를 침범하지 않도록 */
 }
 
 .navButton {
@@ -26,6 +39,7 @@
   font-size: 1rem;
   font-weight: 400;
   cursor: pointer;
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
 }
 
 .navButton:hover {
@@ -183,7 +197,8 @@
 .videoContainer a:hover {
   text-decoration: underline;
 }
-/* 전체 컨테이너 */
+
+/* 어떻게 사용하나요 섹션 */
 .howToUseContainer {
   text-align: center;
   margin-top: 50px;
@@ -237,10 +252,12 @@
 .resultButton:hover {
   background-color: #a2e5a0;
 }
+
 .selectorContainer {
   margin: 40px auto;
   text-align: center;
 }
+
 /* FAQ 섹션 */
 .faqContainer {
   margin: 50px auto;
@@ -274,6 +291,7 @@
   line-height: 1.5;
   color: #555;
 }
+
 /* Footer 스타일 */
 .footer {
   background-color: #f1f1f1; /* 회색 배경 */

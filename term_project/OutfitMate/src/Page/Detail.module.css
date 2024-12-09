@@ -1,101 +1,167 @@
-/* 전체 컨테이너 */
-.detailContainer {
-  font-family: "Arial", sans-serif;
+/* Header 수정 - 화면 벗어남 방지 */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%; /* 화면을 벗어나지 않도록 설정 */
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.95);
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* padding 포함 */
+  z-index: 1000;
+}
+
+/* Header 버튼 정렬 */
+.headerButton {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  margin-left: 20px;
+  cursor: pointer;
+  color: #555;
+}
+
+.headerButton:hover {
+  color: #28a745;
+}
+
+/* 전체 레이아웃 */
+.detailContainer {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: calc(100vh - 70px);
   background-color: #f8f9fa;
 }
 
-/* 날씨 섹션 */
-.weatherSection {
-  width: 90%;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
+/* 왼쪽 패널 */
+.leftContainer {
+  width: 350px;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 상단 정렬 */
+  padding: 30px;
+  box-sizing: border-box; /* 패딩 포함 */
+}
+
+.dateTimeBox {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.weatherBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.weatherIcon img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
 }
 
 .weatherInfo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-}
-
-.weatherInfo img {
-  width: 50px;
-}
-
-.weatherButton {
-  background-color: #81e979;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s;
-}
-
-.weatherButton:hover {
-  background-color: #6cd16e;
-}
-
-/* 의상 추천 결과 섹션 */
-.resultSection {
-  width: 90%;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
   text-align: center;
 }
 
-.clothingRecommendation {
-  margin-top: 20px;
-}
-
-.clothingResult img {
-  width: 50%;
-  margin-top: 10px;
-  border-radius: 10px;
-}
-
-.fileUpload {
-  margin: 15px 0;
-}
-
-.fileLabel {
-  display: block;
-  margin-bottom: 10px;
+.locationInfo {
   font-size: 1rem;
-  font-weight: 600;
+  color: #555;
+  text-align: center;
 }
 
-.previewImage {
-  margin-top: 15px;
-  max-width: 100%;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* 버튼 스타일 */
-button {
-  margin-top: 15px;
-  background-color: #5cfa4b;
+.getWeatherButton {
+  background-color: #81e979;
   color: white;
   padding: 10px 20px;
-  font-size: 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 1.1rem;
   transition: background-color 0.3s;
+  margin-top: 20px;
 }
 
-button:hover {
-  background-color: #4bd43b;
+.getWeatherButton:hover {
+  background-color: #6cd16e;
+}
+
+.clothesRecommendation p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* 오른쪽 패널 */
+.rightContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.resultButtons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.showResultButton {
+  background-color: #c4f1be;
+  color: #333;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.showResultButton:hover {
+  background-color: #a3d9a0;
+}
+
+.iconButton {
+  background-color: #e8f3e8;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+.iconButton:hover {
+  background-color: #d0e6d0;
+}
+
+.resultImage {
+  margin-top: 20px;
+  max-width: 60%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

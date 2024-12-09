@@ -1,5 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 import styles from "./Home.module.css";
 import React_icon from "./Static/React-ico.png";
 import flask_icon from "./Static/flask.png";
@@ -12,6 +14,7 @@ import playButton from "./Static/play-button.png"; // 플레이 버튼 이미지
 import location_icon from "./Static/location-icon.png";
 import folder_icon from "./Static/folder.png";
 import ImageSelector from "../Component/ImageSelector";
+
 function Home() {
   const navigate = useNavigate();
   const videoRef = useRef(null);
@@ -26,14 +29,42 @@ function Home() {
     }
   };
 
+  // "정보" 버튼 클릭 시 videoSection으로 스크롤
+  const goToInfoSection = () => {
+    const videoSection = document.getElementById("videoSection");
+    if (videoSection) {
+      videoSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  // "FAQ" 버튼 클릭 시 faqSection으로 스크롤
+  const goToFAQSection = () => {
+    const faqSection = document.getElementById("faqSection");
+    if (faqSection) {
+      faqSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const target = document.getElementById(location.state.scrollTo);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <div className={styles.homeContainer}>
       <header className={styles.header}>
         <nav>
-          <button className={styles.navButton} onClick={goToLogin}>
+          <button className={styles.navButton} onClick={goToInfoSection}>
             정보
           </button>
-          <button className={styles.navButton}>FAQ</button>
+          <button className={styles.navButton} onClick={goToFAQSection}>
+            FAQ
+          </button>
           <button className={styles.navButton} onClick={goToSignUp}>
             로그인
           </button>
@@ -90,7 +121,8 @@ function Home() {
         </div>
       </div>
 
-      <div className={styles.videoContainer}>
+      {/* id 부여: 정보 버튼 클릭 시 이동할 영역 */}
+      <div className={styles.videoContainer} id="videoSection">
         <h2 className={styles.videoTitle}>Outfit Mate는 어떤 서비스인가요?</h2>
         <div className={styles.videoWrapper}>
           <video ref={videoRef} controls className={styles.video}>
@@ -114,6 +146,7 @@ function Home() {
           </a>
         </p>
       </div>
+
       <div className={styles.howToUseContainer}>
         <h2 className={styles.howToUseTitle}>어떻게 사용하나요?</h2>
         <div className={styles.stepsContainer}>
@@ -157,10 +190,13 @@ function Home() {
           </div>
         </div>
       </div>
+
       {/* Image Selector */}
       <div className={styles.selectorContainer}>
         <ImageSelector />
       </div>
+
+      {/* FAQ 섹션에 id 부여: FAQ 버튼 클릭 시 이동할 영역 */}
       <div className={styles.faqContainer} id="faqSection">
         <h2 className={styles.faqTitle}>자주 묻는 질문 (FAQ)</h2>
         <div className={styles.faqItem}>
@@ -186,6 +222,7 @@ function Home() {
           <p>Outfit Mate는 무료로 제공되며 누구나 사용할 수 있습니다.</p>
         </div>
       </div>
+
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
           <p>&copy; 2024 Outfit Mate. All rights reserved.</p>
