@@ -30,7 +30,7 @@
 }
 
 .resButton {
-  background-color: #81e979;
+  background-color: #4cbb17;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -40,5 +40,5 @@
 }
 
 .resButton:hover {
-  background-color: #6cd16e;
+  background-color: #28a745;
 }

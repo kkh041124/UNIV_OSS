@@ -201,6 +201,7 @@ html {
   margin-bottom: 5px;
 }
 
+/* 파일 업로드 입력 필드 스타일 */
 .uploadContainer input[type="file"] {
   width: 100%; /* 입력창 너비 확장 */
   padding: 12px;
@@ -208,6 +209,21 @@ html {
   border-radius: 5px;
   font-size: 0.9rem;
   box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 부드러운 전환 */
+  cursor: pointer; /* 마우스 커서 변경 */
+}
+
+/* Hover 시 효과 */
+.uploadContainer input[type="file"]:hover {
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Focus 시 효과 */
+.uploadContainer input[type="file"]:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.8);
 }
 
 /* 버튼 영역 */

@@ -8,8 +8,9 @@ import flask_icon from "./Static/flask.png";
 import opcv_icon from "./Static/opencv-icon.png";
 import github_icon from "./Static/github-mark.svg";
 import css_icon from "./Static/css-modules-logo.png";
-import pandaImage from "./Static/panda-image.png";
-import testVideo from "./Static/test.mp4";
+// import pandaImage from "./Static/panda-image.png";
+import pandaImage from "./Static/gif.gif";
+import testVideo from "./Static/outfitmate.mp4";
 import playButton from "./Static/play-button.png"; // 플레이 버튼 이미지
 import location_icon from "./Static/location-icon.png";
 import folder_icon from "./Static/folder.png";
@@ -63,10 +64,9 @@ function Home() {
   return (
     <div className={styles.homeContainer}>
       <header className={styles.header}>
-        {/* 좌측 로고 - 새로고침 기능 */}
         <div
           className={styles.headerLogo}
-          onClick={() => window.location.reload()}
+          onClick={() => navigate("/")} // 새로고침 대신 홈 페이지로 이동
         >
           Outfit Mate
         </div>
@@ -252,7 +252,7 @@ function Home() {
           <p>
             Designed and developed by{" "}
             <a
-              href="https://github.com/kkh041124/UNIV_OSS"
+              href="https://github.com/kkh041124/UNIV_OSS/"
               target="_blank"
               rel="noopener noreferrer"
             >
