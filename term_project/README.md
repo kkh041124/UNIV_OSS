@@ -19,7 +19,8 @@ Here's the updated **README.md** file with your additional details about the mot
 7. [Project Structure](#project-structure)
 8. [Screenshots](#screenshots)
 9. [How to Run](#how-to-run)
-10. [Contact](#contact)
+10. [Live Demo](#live-demo)
+11. [Contact](#contact)
 
 ---
 
@@ -268,6 +269,14 @@ Outfit Mate의 **로그인 페이지**입니다.
 - **간단한 사용법**: 3단계로 누구나 쉽게 사용할 수 있는 UI.
 
 Outfit Mate는 온라인에서 옷을 고를 때 발생하는 걱정을 덜어주고, 새로운 스타일을 제안하는 스마트 도구입니다! 🎉
+
+---
+
+## **Live Demo**
+
+서비스를 직접 체험해보세요! 🎉
+
+**[Outfit Mate - Live Site](https://outfitmate.web.app)**
 
 ---
 
